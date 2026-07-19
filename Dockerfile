@@ -4,7 +4,6 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
 
-# Render assigns a PORT (defaults to 10000 on free tier)
 ENV PORT=10000
 
 WORKDIR /app
@@ -14,6 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app.py .
 COPY model_artifacts/ ./model_artifacts/
+COPY static_frontend/ ./static_frontend/
 
 EXPOSE 10000
 
